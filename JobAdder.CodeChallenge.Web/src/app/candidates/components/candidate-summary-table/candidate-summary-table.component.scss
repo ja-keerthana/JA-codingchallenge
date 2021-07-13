@@ -1,0 +1,28 @@
+@import '../../../../variables.scss';
+
+table {
+    width: 100%;
+}
+
+tr.mat-header-row {
+    height: 38px !important;
+}
+
+.mat-row.cdk-row {
+    height: 38px !important;
+}
+
+.mat-row .mat-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+}
+  
+.mat-row:hover .mat-cell {
+    border-color: currentColor;
+}
+  
+.row-is-clicked {
+    font-weight: bold;
+    background-color: $primary-lighter !important;
+}

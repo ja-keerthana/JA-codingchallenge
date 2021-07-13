@@ -1,0 +1,1 @@
+export * from './jobs-page/jobs-page.component';

@@ -1,0 +1,13 @@
+<div>
+    <ul>
+        <li *ngFor="let navItem of navigationItems" [ngClass]="{'is-active': isActive(navItem)}"
+            (click)="navigateTo(navItem)">
+            <span>
+                <mat-icon class="self-center" matTooltip="{{ navItem.title }}" matTooltipPosition="right">{{ navItem.icon }}</mat-icon>
+                <a>
+                    {{ navItem.title }}
+                </a>
+            </span>
+        </li>
+    </ul>
+</div>

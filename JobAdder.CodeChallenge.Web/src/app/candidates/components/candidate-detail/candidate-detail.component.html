@@ -1,0 +1,38 @@
+<div class="mr-6 ml-6">
+    <div *ngIf="!!candidate; else noCandidate" class="m-6">
+        <mat-card>
+            <mat-list>
+                <div mat-subheader>Information</div>
+                <mat-list-item>
+                    <mat-icon mat-list-icon>person</mat-icon>
+                    <div mat-line>{{ candidate.name }}</div>
+                    <div mat-line><i>Candidate ID:</i> {{ candidate.candidateId }}</div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <div mat-subheader>Skills</div>
+                <mat-list-item *ngFor="let skillTag of candidate.skillTags">
+                    <mat-icon mat-list-icon>stacked_bar_chart</mat-icon>
+                    <div mat-line>{{ skillTag }}</div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <div mat-subheader>Best Suited Jobs</div>
+                <ng-container *ngIf="!!jobSummaries?.length; else noJobSummaries">
+                    <mat-list-item *ngFor="let jobSummary of jobSummaries">
+                        <mat-icon mat-list-icon>work_outline</mat-icon>
+                        <div mat-line>{{ jobSummary.name }}</div>
+                        <div mat-line><i>Job ID:</i> {{ jobSummary.jobId }}</div>
+                    </mat-list-item>
+                </ng-container>
+            </mat-list>
+        </mat-card>
+    </div>
+    <ng-template #noCandidate>
+        <p class="animate-bounce w-100 h-6"><i>Waiting for candidate selection ...</i></p>
+    </ng-template>
+    <ng-template #noJobSummaries>
+        <mat-list-item>
+            <mat-icon mat-list-icon>work_off</mat-icon>
+            <div mat-line><i>No jobs contains skills which match this candidate's skills ...</i></div>
+        </mat-list-item>
+    </ng-template>
+</div>

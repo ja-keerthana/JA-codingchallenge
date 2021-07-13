@@ -1,0 +1,19 @@
+<div class="m-6">
+    <h1>Candidates Summary Table</h1>
+    <app-candidate-summary-table (selectCandidate)="selectCandidate($event)"></app-candidate-summary-table>
+    <div class="p-6">
+        <span class="flex justify-content-start">
+            <mat-icon>saved_search</mat-icon>
+            <i>Please click on a candiate to view the candidate detail</i>
+        </span>
+    </div>
+
+    <mat-divider></mat-divider>
+    <mat-divider></mat-divider>
+    <mat-divider></mat-divider>
+
+    <div class="mt-6">
+        <h1 >Candidate Detail</h1>
+    </div>
+    <app-candidate-detail [selectedCandidateId]="selectedCandidateId"></app-candidate-detail>
+</div>

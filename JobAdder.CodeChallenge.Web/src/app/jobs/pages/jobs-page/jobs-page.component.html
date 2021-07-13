@@ -1,0 +1,19 @@
+<div class="m-6">
+    <h1>Jobs Summary Table</h1>
+    <app-job-summary-table (selectJob)="selectJob($event)"></app-job-summary-table>
+    <div class="p-6">
+        <span class="flex justify-content-start">
+            <mat-icon>saved_search</mat-icon>
+            <i>Please click on a job to view the job detail</i>
+        </span>
+    </div>
+
+    <mat-divider></mat-divider>
+    <mat-divider></mat-divider>
+    <mat-divider></mat-divider>
+
+    <div class="mt-6">
+        <h1 >Job Detail</h1>
+    </div>
+    <app-job-detail [selectedJobId]="selectedJobId"></app-job-detail>
+</div>
