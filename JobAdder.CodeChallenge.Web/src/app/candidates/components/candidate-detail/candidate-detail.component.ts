@@ -26,12 +26,12 @@ export class CandidateDetailComponent implements OnChanges {
 
   public getCandidate(candidateId: number): void {
     this._candidateService
-      .getCandidate(candidateId)
+      .matchCandidateToJobs(candidateId)
       .pipe(
-        withLatestFrom(this._candidateService.matchCandidateToJobs(candidateId)),
+        withLatestFrom(this._candidateService.getCandidate(candidateId)),
         take(1)
       )
-      .subscribe(([candidate, jobSummaries]: [Candidate | null, JobSummary[] | null]) => {
+      .subscribe(([jobSummaries,candidate]: [JobSummary[] | null,Candidate | null]) => {
         this.candidate = candidate;
         this.jobSummaries = jobSummaries
         this._cdRef.markForCheck();
