@@ -27,7 +27,9 @@ export class JobSummaryTableComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator | null = null;
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.findJobs(0,10);
+   }
 
   public isActiveClickRow(row: JobSummary | undefined | null): boolean {
     return this.currentId === row?.jobId;
@@ -60,7 +62,7 @@ export class JobSummaryTableComponent implements OnInit {
         else if (jobPagedList?.items?.length && !!this.dataSource) {
           this.dataSource.data = jobPagedList?.items;
         }
-        
+
         this.totalPaginatedItems = jobPagedList?.totalItems ?? 0;
         this.pageIndex = jobPagedList?.pageIndex ?? 0;
         this.pageSize = jobPagedList?.pageSize ?? 0;

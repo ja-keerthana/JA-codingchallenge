@@ -23,7 +23,7 @@ import { JobSummaryTableComponent, JobDetailComponent } from './components';
     FormsModule,
     ReactiveFormsModule,
     MatTableModule,
-    //MatPaginatorModule,
+    MatPaginatorModule,
     MatProgressSpinnerModule,
     MatDividerModule,
     MatListModule,

@@ -39,8 +39,17 @@ namespace JobAdder.CodeChallenge.Services
       pageSize = pageSize <= 0 ? 10 : pageSize;
 
       var candidates = await FindAllAsync();
+      var candidatesList = new PagedList<Candidate>();
+      if (candidates == null || candidates.Count == 0) return candidatesList;
 
-      throw new NotImplementedException("TODO - Implement Pagination");
+      var pagedCandidates = candidates.Skip(pageIndex * pageSize).Take(pageSize).ToList();
+      
+      candidatesList.PageIndex = pageIndex;
+      candidatesList.PageSize = pageSize;
+      candidatesList.Items = pagedCandidates;
+      candidatesList.TotalItems = candidates.Count;
+
+      return candidatesList;
     }
 
     public async Task<Candidate> GetByIDAsync(int candidateID)

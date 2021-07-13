@@ -38,7 +38,7 @@ namespace JobAdder.CodeChallenge.Api
       services.AddScoped<HttpClient>();
       services.AddScoped<ISkillMatchService, SkillMatchService>();
       services.AddScoped<ICandidateService, CandidateService>();
-      services.AddScoped<IJobService, IJobService>();
+      services.AddScoped<IJobService, JobService>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -14,7 +14,7 @@ export class CandidateService {
   constructor(private _http: HttpClient) { }
 
   public findCandidates(pageIndex: number = 0, pageSize: number = 10): Observable<PagedList<CandidateSummary> | null> {
-    return this._http.get<PagedList<CandidateSummary> | null>(`${environment.apiUrl}/candidates/999999999999`);
+    return this._http.get<PagedList<CandidateSummary> | null>(`${environment.apiUrl}/candidates?pageIndex=${pageIndex}&pageSize=${pageSize}`);
   }
 
   public getCandidate(candidateId: number): Observable<Candidate | null> {

@@ -14,7 +14,7 @@ export class JobService {
   constructor(private _http: HttpClient) { }
 
   public findJobs(pageIndex: number = 0, pageSize: number = 10): Observable<PagedList<JobSummary> | null> {
-    return this._http.get<PagedList<JobSummary> | null>(`${environment.apiUrl}/jobs/9999999999`);
+    return this._http.get<PagedList<JobSummary> | null>(`${environment.apiUrl}/jobs?pageIndex=${pageIndex}&pageSize=${pageSize}`);
   }
 
   public getJob(jobId: number): Observable<Job | null> {
