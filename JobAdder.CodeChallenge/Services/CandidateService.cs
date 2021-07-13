@@ -42,6 +42,7 @@ namespace JobAdder.CodeChallenge.Services
       var candidatesList = new PagedList<Candidate>();
       if (candidates == null || candidates.Count == 0) return candidatesList;
 
+      if (pageIndex * pageSize >= candidates.Count) throw new ArgumentOutOfRangeException();
       var pagedCandidates = candidates.Skip(pageIndex * pageSize).Take(pageSize).ToList();
       
       candidatesList.PageIndex = pageIndex;
